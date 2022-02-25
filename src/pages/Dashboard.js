@@ -1,5 +1,5 @@
 import { Helmet } from 'react-helmet';
-import { Box, Container, Grid } from '@material-ui/core';
+import { Box, Container, Grid } from '@mui/material';
 import Budget from '../components/dashboard/Budget';
 import LatestOrders from '../components/dashboard/LatestOrders';
 import LatestProducts from '../components/dashboard/LatestProducts';
@@ -15,10 +15,10 @@ const Dashboard = () => (
       <title>Dashboard | Material Kit</title>
     </Helmet>
     <Box
+      component="main"
       sx={{
-        backgroundColor: 'background.default',
-        minHeight: '100%',
-        py: 3
+        flexGrow: 1,
+        py: 8
       }}
     >
       <Container maxWidth={false}>
@@ -37,27 +37,27 @@ const Dashboard = () => (
           </Grid>
           <Grid
             item
+            xl={3}
             lg={3}
             sm={6}
-            xl={3}
             xs={12}
           >
             <TotalCustomers />
           </Grid>
           <Grid
             item
+            xl={3}
             lg={3}
             sm={6}
-            xl={3}
             xs={12}
           >
             <TasksProgress />
           </Grid>
           <Grid
             item
+            xl={3}
             lg={3}
             sm={6}
-            xl={3}
             xs={12}
           >
             <TotalProfit sx={{ height: '100%' }} />

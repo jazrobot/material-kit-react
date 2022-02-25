@@ -1,9 +1,8 @@
 import { Helmet } from 'react-helmet';
 import {
-  Box,
-  Container,
-  Grid
-} from '@material-ui/core';
+  Box, Container, Grid, Typography
+} from '@mui/material';
+
 import AccountProfile from '../components/account/AccountProfile';
 import AccountProfileDetails from '../components/account/AccountProfileDetails';
 
@@ -13,13 +12,19 @@ const Account = () => (
       <title>Account | Material Kit</title>
     </Helmet>
     <Box
+      component="main"
       sx={{
-        backgroundColor: 'background.default',
-        minHeight: '100%',
-        py: 3
+        flexGrow: 1,
+        py: 8
       }}
     >
       <Container maxWidth="lg">
+        <Typography
+          sx={{ mb: 3 }}
+          variant="h4"
+        >
+          Account
+        </Typography>
         <Grid
           container
           spacing={3}

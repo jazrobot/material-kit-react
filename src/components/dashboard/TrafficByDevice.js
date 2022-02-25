@@ -1,17 +1,10 @@
 import { Doughnut } from 'react-chartjs-2';
 import {
-  Box,
-  Card,
-  CardContent,
-  CardHeader,
-  Divider,
-  Typography,
-  colors,
-  useTheme
-} from '@material-ui/core';
-import LaptopMacIcon from '@material-ui/icons/LaptopMac';
-import PhoneIcon from '@material-ui/icons/Phone';
-import TabletIcon from '@material-ui/icons/Tablet';
+  Box, Card, CardContent, CardHeader, Divider, Typography, useTheme
+} from '@mui/material';
+import LaptopMacIcon from '@mui/icons-material/LaptopMac';
+import PhoneIcon from '@mui/icons-material/Phone';
+import TabletIcon from '@mui/icons-material/Tablet';
 
 const TrafficByDevice = (props) => {
   const theme = useTheme();
@@ -20,14 +13,10 @@ const TrafficByDevice = (props) => {
     datasets: [
       {
         data: [63, 15, 22],
-        backgroundColor: [
-          colors.indigo[500],
-          colors.red[600],
-          colors.orange[600]
-        ],
+        backgroundColor: ['#3F51B5', '#e53935', '#FB8C00'],
         borderWidth: 8,
-        borderColor: colors.common.white,
-        hoverBorderColor: colors.common.white
+        borderColor: '#FFFFFF',
+        hoverBorderColor: '#FFFFFF'
       }
     ],
     labels: ['Desktop', 'Tablet', 'Mobile']
@@ -60,19 +49,19 @@ const TrafficByDevice = (props) => {
       title: 'Desktop',
       value: 63,
       icon: LaptopMacIcon,
-      color: colors.indigo[500]
+      color: '#3F51B5'
     },
     {
       title: 'Tablet',
       value: 15,
       icon: TabletIcon,
-      color: colors.red[600]
+      color: '#E53935'
     },
     {
       title: 'Mobile',
       value: 23,
       icon: PhoneIcon,
-      color: colors.orange[600]
+      color: '#FB8C00'
     }
   ];
 
@@ -121,7 +110,7 @@ const TrafficByDevice = (props) => {
               </Typography>
               <Typography
                 style={{ color }}
-                variant="h2"
+                variant="h4"
               >
                 {value}
                 %

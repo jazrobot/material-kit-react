@@ -1,14 +1,8 @@
 import {
-  Avatar,
-  Box,
-  Card,
-  CardContent,
-  Grid,
-  Typography
-} from '@material-ui/core';
-import ArrowDownwardIcon from '@material-ui/icons/ArrowDownward';
-import MoneyIcon from '@material-ui/icons/Money';
-import { red } from '@material-ui/core/colors';
+  Avatar, Box, Card, CardContent, Grid, Typography
+} from '@mui/material';
+import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
+import MoneyIcon from '@mui/icons-material/Money';
 
 const Budget = (props) => (
   <Card
@@ -25,21 +19,21 @@ const Budget = (props) => (
           <Typography
             color="textSecondary"
             gutterBottom
-            variant="h6"
+            variant="overline"
           >
             BUDGET
           </Typography>
           <Typography
             color="textPrimary"
-            variant="h3"
+            variant="h4"
           >
-            $24,000
+            $24k
           </Typography>
         </Grid>
         <Grid item>
           <Avatar
             sx={{
-              backgroundColor: red[600],
+              backgroundColor: 'error.main',
               height: 56,
               width: 56
             }}
@@ -55,10 +49,10 @@ const Budget = (props) => (
           alignItems: 'center'
         }}
       >
-        <ArrowDownwardIcon sx={{ color: red[900] }} />
+        <ArrowDownwardIcon color="error" />
         <Typography
+          color="error"
           sx={{
-            color: red[900],
             mr: 1
           }}
           variant="body2"

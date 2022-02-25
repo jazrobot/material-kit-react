@@ -5,30 +5,49 @@ import {
   CardContent,
   TextField,
   InputAdornment,
-  SvgIcon
-} from '@material-ui/core';
-import { Search as SearchIcon } from 'react-feather';
+  SvgIcon, Typography
+} from '@mui/material';
+import { Search as SearchIcon } from '../../icons/search';
+import { Upload as UploadIcon } from '../../icons/upload';
+import { Download as DownloadIcon } from '../../icons/download';
 
 const CustomerListToolbar = (props) => (
   <Box {...props}>
     <Box
       sx={{
+        alignItems: 'center',
         display: 'flex',
-        justifyContent: 'flex-end'
+        justifyContent: 'space-between',
+        flexWrap: 'wrap',
+        m: -1
       }}
     >
-      <Button>
-        Import
-      </Button>
-      <Button sx={{ mx: 1 }}>
-        Export
-      </Button>
-      <Button
-        color="primary"
-        variant="contained"
+      <Typography
+        sx={{ m: 1 }}
+        variant="h4"
       >
-        Add customer
-      </Button>
+        Customers
+      </Typography>
+      <Box sx={{ m: 1 }}>
+        <Button
+          startIcon={(<UploadIcon fontSize="small" />)}
+          sx={{ mr: 1 }}
+        >
+          Import
+        </Button>
+        <Button
+          startIcon={(<DownloadIcon fontSize="small" />)}
+          sx={{ mr: 1 }}
+        >
+          Export
+        </Button>
+        <Button
+          color="primary"
+          variant="contained"
+        >
+          Add Customers
+        </Button>
+      </Box>
     </Box>
     <Box sx={{ mt: 3 }}>
       <Card>
@@ -40,8 +59,8 @@ const CustomerListToolbar = (props) => (
                 startAdornment: (
                   <InputAdornment position="start">
                     <SvgIcon
-                      fontSize="small"
                       color="action"
+                      fontSize="small"
                     >
                       <SearchIcon />
                     </SvgIcon>

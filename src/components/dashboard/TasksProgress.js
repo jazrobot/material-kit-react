@@ -1,14 +1,7 @@
 import {
-  Avatar,
-  Box,
-  Card,
-  CardContent,
-  Grid,
-  LinearProgress,
-  Typography
-} from '@material-ui/core';
-import { orange } from '@material-ui/core/colors';
-import InsertChartIcon from '@material-ui/icons/InsertChartOutlined';
+  Avatar, Box, Card, CardContent, Grid, LinearProgress, Typography
+} from '@mui/material';
+import InsertChartIcon from '@mui/icons-material/InsertChartOutlined';
 
 const TasksProgress = (props) => (
   <Card
@@ -25,13 +18,13 @@ const TasksProgress = (props) => (
           <Typography
             color="textSecondary"
             gutterBottom
-            variant="h6"
+            variant="overline"
           >
             TASKS PROGRESS
           </Typography>
           <Typography
             color="textPrimary"
-            variant="h3"
+            variant="h4"
           >
             75.5%
           </Typography>
@@ -39,7 +32,7 @@ const TasksProgress = (props) => (
         <Grid item>
           <Avatar
             sx={{
-              backgroundColor: orange[600],
+              backgroundColor: 'warning.main',
               height: 56,
               width: 56
             }}

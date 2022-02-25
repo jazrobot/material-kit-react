@@ -1,13 +1,7 @@
 import { useState } from 'react';
 import {
-  Box,
-  Button,
-  Card,
-  CardContent,
-  CardHeader,
-  Divider,
-  TextField
-} from '@material-ui/core';
+  Box, Button, Card, CardContent, CardHeader, Divider, TextField
+} from '@mui/material';
 
 const SettingsPassword = (props) => {
   const [values, setValues] = useState({

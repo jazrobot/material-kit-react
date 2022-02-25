@@ -1,10 +1,7 @@
 import { Helmet } from 'react-helmet';
 import {
-  Box,
-  Container,
-  Grid,
-  Pagination
-} from '@material-ui/core';
+  Box, Container, Grid, Pagination
+} from '@mui/material';
 import ProductListToolbar from '../components/product/ProductListToolbar';
 import ProductCard from '../components/product/ProductCard';
 import products from '../__mocks__/products';
@@ -15,10 +12,10 @@ const ProductList = () => (
       <title>Products | Material Kit</title>
     </Helmet>
     <Box
+      component="main"
       sx={{
-        backgroundColor: 'background.default',
-        minHeight: '100%',
-        py: 3
+        flexGrow: 1,
+        py: 8
       }}
     >
       <Container maxWidth={false}>

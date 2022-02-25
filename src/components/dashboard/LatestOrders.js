@@ -1,4 +1,4 @@
-import moment from 'moment';
+import { format } from 'date-fns';
 import { v4 as uuid } from 'uuid';
 import PerfectScrollbar from 'react-perfect-scrollbar';
 import {
@@ -6,8 +6,6 @@ import {
   Button,
   Card,
   CardHeader,
-  Chip,
-  Divider,
   Table,
   TableBody,
   TableCell,
@@ -15,8 +13,9 @@ import {
   TableRow,
   TableSortLabel,
   Tooltip
-} from '@material-ui/core';
-import ArrowRightIcon from '@material-ui/icons/ArrowRight';
+} from '@mui/material';
+import ArrowRightIcon from '@mui/icons-material/ArrowRight';
+import { SeverityPill } from '../SeverityPill';
 
 const orders = [
   {
@@ -84,7 +83,6 @@ const orders = [
 const LatestOrders = (props) => (
   <Card {...props}>
     <CardHeader title="Latest Orders" />
-    <Divider />
     <PerfectScrollbar>
       <Box sx={{ minWidth: 800 }}>
         <Table>
@@ -127,14 +125,16 @@ const LatestOrders = (props) => (
                   {order.customer.name}
                 </TableCell>
                 <TableCell>
-                  {moment(order.createdAt).format('DD/MM/YYYY')}
+                  {format(order.createdAt, 'dd/MM/yyyy')}
                 </TableCell>
                 <TableCell>
-                  <Chip
-                    color="primary"
-                    label={order.status}
-                    size="small"
-                  />
+                  <SeverityPill
+                    color={(order.status === 'delivered' && 'success')
+                    || (order.status === 'refunded' && 'error')
+                    || 'warning'}
+                  >
+                    {order.status}
+                  </SeverityPill>
                 </TableCell>
               </TableRow>
             ))}
@@ -151,7 +151,7 @@ const LatestOrders = (props) => (
     >
       <Button
         color="primary"
-        endIcon={<ArrowRightIcon />}
+        endIcon={<ArrowRightIcon fontSize="small" />}
         size="small"
         variant="text"
       >

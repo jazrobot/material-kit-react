@@ -1,5 +1,5 @@
+import { formatDistanceToNow, subHours } from 'date-fns';
 import { v4 as uuid } from 'uuid';
-import moment from 'moment';
 import {
   Box,
   Button,
@@ -11,40 +11,40 @@ import {
   ListItem,
   ListItemAvatar,
   ListItemText
-} from '@material-ui/core';
-import MoreVertIcon from '@material-ui/icons/MoreVert';
-import ArrowRightIcon from '@material-ui/icons/ArrowRight';
+} from '@mui/material';
+import ArrowRightIcon from '@mui/icons-material/ArrowRight';
+import MoreVertIcon from '@mui/icons-material/MoreVert';
 
 const products = [
   {
     id: uuid(),
     name: 'Dropbox',
     imageUrl: '/static/images/products/product_1.png',
-    updatedAt: moment().subtract(2, 'hours')
+    updatedAt: subHours(Date.now(), 2)
   },
   {
     id: uuid(),
     name: 'Medium Corporation',
     imageUrl: '/static/images/products/product_2.png',
-    updatedAt: moment().subtract(2, 'hours')
+    updatedAt: subHours(Date.now(), 2)
   },
   {
     id: uuid(),
     name: 'Slack',
     imageUrl: '/static/images/products/product_3.png',
-    updatedAt: moment().subtract(3, 'hours')
+    updatedAt: subHours(Date.now(), 3)
   },
   {
     id: uuid(),
     name: 'Lyft',
     imageUrl: '/static/images/products/product_4.png',
-    updatedAt: moment().subtract(5, 'hours')
+    updatedAt: subHours(Date.now(), 5)
   },
   {
     id: uuid(),
     name: 'GitHub',
     imageUrl: '/static/images/products/product_5.png',
-    updatedAt: moment().subtract(9, 'hours')
+    updatedAt: subHours(Date.now(), 9)
   }
 ];
 
@@ -73,7 +73,7 @@ const LatestProducts = (props) => (
           </ListItemAvatar>
           <ListItemText
             primary={product.name}
-            secondary={`Updated ${product.updatedAt.fromNow()}`}
+            secondary={`Updated ${formatDistanceToNow(product.updatedAt)}`}
           />
           <IconButton
             edge="end"

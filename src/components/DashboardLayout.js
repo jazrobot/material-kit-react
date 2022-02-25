@@ -1,61 +1,43 @@
 import { useState } from 'react';
 import { Outlet } from 'react-router-dom';
-import { styled } from '@material-ui/core/styles';
+import { Box } from '@mui/material';
+import { styled } from '@mui/material/styles';
 import DashboardNavbar from './DashboardNavbar';
 import DashboardSidebar from './DashboardSidebar';
 
-const DashboardLayoutRoot = styled('div')(
-  ({ theme }) => ({
-    backgroundColor: theme.palette.background.default,
-    display: 'flex',
-    height: '100%',
-    overflow: 'hidden',
-    width: '100%'
-  })
-);
-
-const DashboardLayoutWrapper = styled('div')(
-  ({ theme }) => ({
-    display: 'flex',
-    flex: '1 1 auto',
-    overflow: 'hidden',
-    paddingTop: 64,
-    [theme.breakpoints.up('lg')]: {
-      paddingLeft: 256
-    }
-  })
-);
-
-const DashboardLayoutContainer = styled('div')({
+const DashboardLayoutRoot = styled('div')(({ theme }) => ({
   display: 'flex',
   flex: '1 1 auto',
-  overflow: 'hidden'
-});
-
-const DashboardLayoutContent = styled('div')({
-  flex: '1 1 auto',
-  height: '100%',
-  overflow: 'auto'
-});
+  maxWidth: '100%',
+  paddingTop: 64,
+  [theme.breakpoints.up('lg')]: {
+    paddingLeft: 280
+  }
+}));
 
 const DashboardLayout = () => {
-  const [isMobileNavOpen, setMobileNavOpen] = useState(false);
+  const [isSidebarOpen, setSidebarOpen] = useState(true);
 
   return (
-    <DashboardLayoutRoot>
-      <DashboardNavbar onMobileNavOpen={() => setMobileNavOpen(true)} />
+    <>
+      <DashboardLayoutRoot>
+        <Box
+          sx={{
+            display: 'flex',
+            flex: '1 1 auto',
+            flexDirection: 'column',
+            width: '100%'
+          }}
+        >
+          <Outlet />
+        </Box>
+      </DashboardLayoutRoot>
+      <DashboardNavbar onSidebarOpen={() => setSidebarOpen(true)} />
       <DashboardSidebar
-        onMobileClose={() => setMobileNavOpen(false)}
-        openMobile={isMobileNavOpen}
+        onClose={() => setSidebarOpen(false)}
+        open={isSidebarOpen}
       />
-      <DashboardLayoutWrapper>
-        <DashboardLayoutContainer>
-          <DashboardLayoutContent>
-            <Outlet />
-          </DashboardLayoutContent>
-        </DashboardLayoutContainer>
-      </DashboardLayoutWrapper>
-    </DashboardLayoutRoot>
+    </>
   );
 };
 

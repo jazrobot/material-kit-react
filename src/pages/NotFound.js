@@ -1,9 +1,9 @@
 import { Helmet } from 'react-helmet';
+import { Link as RouterLink } from 'react-router-dom';
 import {
-  Box,
-  Container,
-  Typography
-} from '@material-ui/core';
+  Box, Button, Container, Typography
+} from '@mui/material';
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 
 const NotFound = () => (
   <>
@@ -11,41 +11,58 @@ const NotFound = () => (
       <title>404 | Material Kit</title>
     </Helmet>
     <Box
+      component="main"
       sx={{
-        backgroundColor: 'background.default',
+        alignItems: 'center',
         display: 'flex',
-        flexDirection: 'column',
-        height: '100%',
-        justifyContent: 'center'
+        flexGrow: 1,
+        minHeight: '100%'
       }}
     >
       <Container maxWidth="md">
-        <Typography
-          align="center"
-          color="textPrimary"
-          variant="h1"
+        <Box
+          sx={{
+            alignItems: 'center',
+            display: 'flex',
+            flexDirection: 'column'
+          }}
         >
-          404: The page you are looking for isn’t here
-        </Typography>
-        <Typography
-          align="center"
-          color="textPrimary"
-          variant="subtitle2"
-        >
-          You either tried some shady route or you came here by mistake.
-          Whichever it is, try using the navigation
-        </Typography>
-        <Box sx={{ textAlign: 'center' }}>
-          <img
-            alt="Under development"
-            src="/static/images/undraw_page_not_found_su7k.svg"
-            style={{
-              marginTop: 50,
-              display: 'inline-block',
-              maxWidth: '100%',
-              width: 560
-            }}
-          />
+          <Typography
+            align="center"
+            color="textPrimary"
+            variant="h1"
+          >
+            404: The page you are looking for isn’t here
+          </Typography>
+          <Typography
+            align="center"
+            color="textPrimary"
+            variant="subtitle2"
+          >
+            You either tried some shady route or you came here by mistake.
+            Whichever it is, try using the navigation
+          </Typography>
+          <Box sx={{ textAlign: 'center' }}>
+            <img
+              alt="Under development"
+              src="/static/images/undraw_page_not_found_su7k.svg"
+              style={{
+                marginTop: 50,
+                display: 'inline-block',
+                maxWidth: '100%',
+                width: 560
+              }}
+            />
+          </Box>
+          <Button
+            component={RouterLink}
+            to="/"
+            startIcon={(<ArrowBackIcon fontSize="small" />)}
+            sx={{ mt: 3 }}
+            variant="contained"
+          >
+            Go back to dashboard
+          </Button>
         </Box>
       </Container>
     </Box>

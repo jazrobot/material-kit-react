@@ -1,15 +1,9 @@
 import PropTypes from 'prop-types';
 import {
-  Avatar,
-  Box,
-  Card,
-  CardContent,
-  Divider,
-  Grid,
-  Typography
-} from '@material-ui/core';
-import AccessTimeIcon from '@material-ui/icons/AccessTime';
-import GetAppIcon from '@material-ui/icons/GetApp';
+  Avatar, Box, Card, CardContent, Divider, Grid, Typography
+} from '@mui/material';
+import { Clock as ClockIcon } from '../../icons/clock';
+import { Download as DownloadIcon } from '../../icons/download';
 
 const ProductCard = ({ product, ...rest }) => (
   <Card
@@ -38,7 +32,7 @@ const ProductCard = ({ product, ...rest }) => (
         align="center"
         color="textPrimary"
         gutterBottom
-        variant="h4"
+        variant="h5"
       >
         {product.title}
       </Typography>
@@ -65,7 +59,7 @@ const ProductCard = ({ product, ...rest }) => (
             display: 'flex'
           }}
         >
-          <AccessTimeIcon color="action" />
+          <ClockIcon color="action" />
           <Typography
             color="textSecondary"
             display="inline"
@@ -82,7 +76,7 @@ const ProductCard = ({ product, ...rest }) => (
             display: 'flex'
           }}
         >
-          <GetAppIcon color="action" />
+          <DownloadIcon color="action" />
           <Typography
             color="textSecondary"
             display="inline"

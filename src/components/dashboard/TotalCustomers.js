@@ -1,14 +1,8 @@
 import {
-  Avatar,
-  Box,
-  Card,
-  CardContent,
-  Grid,
-  Typography
-} from '@material-ui/core';
-import { green } from '@material-ui/core/colors';
-import ArrowUpwardIcon from '@material-ui/icons/ArrowUpward';
-import PeopleIcon from '@material-ui/icons/PeopleOutlined';
+  Avatar, Box, Card, CardContent, Grid, Typography
+} from '@mui/material';
+import ArrowUpwardIcon from '@mui/icons-material/ArrowUpward';
+import PeopleIcon from '@mui/icons-material/PeopleOutlined';
 
 const TotalCustomers = (props) => (
   <Card {...props}>
@@ -22,21 +16,21 @@ const TotalCustomers = (props) => (
           <Typography
             color="textSecondary"
             gutterBottom
-            variant="h6"
+            variant="overline"
           >
             TOTAL CUSTOMERS
           </Typography>
           <Typography
             color="textPrimary"
-            variant="h3"
+            variant="h4"
           >
-            1,600
+            1,6k
           </Typography>
         </Grid>
         <Grid item>
           <Avatar
             sx={{
-              backgroundColor: green[600],
+              backgroundColor: 'success.main',
               height: 56,
               width: 56
             }}
@@ -52,11 +46,10 @@ const TotalCustomers = (props) => (
           pt: 2
         }}
       >
-        <ArrowUpwardIcon sx={{ color: green[900] }} />
+        <ArrowUpwardIcon color="success" />
         <Typography
           variant="body2"
           sx={{
-            color: green[900],
             mr: 1
           }}
         >

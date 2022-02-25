@@ -1,5 +1,5 @@
 import { Helmet } from 'react-helmet';
-import { Box, Container } from '@material-ui/core';
+import { Box, Container } from '@mui/material';
 import CustomerListResults from '../components/customer/CustomerListResults';
 import CustomerListToolbar from '../components/customer/CustomerListToolbar';
 import customers from '../__mocks__/customers';
@@ -10,15 +10,15 @@ const CustomerList = () => (
       <title>Customers | Material Kit</title>
     </Helmet>
     <Box
+      component="main"
       sx={{
-        backgroundColor: 'background.default',
-        minHeight: '100%',
-        py: 3
+        flexGrow: 1,
+        py: 8
       }}
     >
       <Container maxWidth={false}>
         <CustomerListToolbar />
-        <Box sx={{ pt: 3 }}>
+        <Box sx={{ mt: 3 }}>
           <CustomerListResults customers={customers} />
         </Box>
       </Container>

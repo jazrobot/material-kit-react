@@ -1,18 +1,26 @@
 import { Link as RouterLink } from 'react-router-dom';
-import { AppBar, Toolbar } from '@material-ui/core';
-import Logo from './Logo';
+import styled from '@emotion/styled';
+import {
+  AppBar,
+  Toolbar
+} from '@mui/material';
+import { Logo } from './Logo';
+
+const MainNavbarRoot = styled(AppBar)(({ theme }) => ({
+  backgroundColor: theme.palette.background.paper,
+  boxShadow: theme.shadows[3]
+}));
 
 const MainNavbar = (props) => (
-  <AppBar
-    elevation={0}
-    {...props}
-  >
-    <Toolbar sx={{ height: 64 }}>
-      <RouterLink to="/">
-        <Logo />
-      </RouterLink>
-    </Toolbar>
-  </AppBar>
+  <>
+    <MainNavbarRoot {...props}>
+      <Toolbar sx={{ height: 64 }}>
+        <RouterLink to="/">
+          <Logo />
+        </RouterLink>
+      </Toolbar>
+    </MainNavbarRoot>
+  </>
 );
 
 export default MainNavbar;

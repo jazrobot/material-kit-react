@@ -1,5 +1,5 @@
 import { Helmet } from 'react-helmet';
-import { Box, Container } from '@material-ui/core';
+import { Box, Container, Typography } from '@mui/material';
 import SettingsNotifications from '../components/settings/SettingsNotifications';
 import SettingsPassword from '../components/settings/SettingsPassword';
 
@@ -9,13 +9,19 @@ const SettingsView = () => (
       <title>Settings | Material Kit</title>
     </Helmet>
     <Box
+      component="main"
       sx={{
-        backgroundColor: 'background.default',
-        minHeight: '100%',
-        py: 3
+        flexGrow: 1,
+        py: 8
       }}
     >
       <Container maxWidth="lg">
+        <Typography
+          sx={{ mb: 3 }}
+          variant="h4"
+        >
+          Settings
+        </Typography>
         <SettingsNotifications />
         <Box sx={{ pt: 3 }}>
           <SettingsPassword />

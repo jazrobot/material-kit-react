@@ -1,7 +1,7 @@
 import { useState } from 'react';
-import PropTypes from 'prop-types';
-import moment from 'moment';
 import PerfectScrollbar from 'react-perfect-scrollbar';
+import PropTypes from 'prop-types';
+import { format } from 'date-fns';
 import {
   Avatar,
   Box,
@@ -14,7 +14,7 @@ import {
   TablePagination,
   TableRow,
   Typography
-} from '@material-ui/core';
+} from '@mui/material';
 import getInitials from '../../utils/getInitials';
 
 const CustomerListResults = ({ customers, ...rest }) => {
@@ -142,7 +142,7 @@ const CustomerListResults = ({ customers, ...rest }) => {
                     {customer.phone}
                   </TableCell>
                   <TableCell>
-                    {moment(customer.createdAt).format('DD/MM/YYYY')}
+                    {format(customer.createdAt, 'dd/MM/yyyy')}
                   </TableCell>
                 </TableRow>
               ))}
